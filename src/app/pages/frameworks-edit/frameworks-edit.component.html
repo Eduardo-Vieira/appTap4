@@ -1,0 +1,66 @@
+
+  
+  <div class="app-container padding">
+
+    <h1 class="padding" >Frameworks - Editar </h1>
+
+    <div class="margin-bottom">
+      <button mat-raised-button color="primary" (click)="openDialog()"><mat-icon class="margin-right" matPrefix>create</mat-icon> Cadastra Linguagem</button>
+    </div>
+    
+     <form class="app-container" #form="ngForm" (ngSubmit)="doSave(form)" >
+    
+        <mat-form-field>
+          <input matInput name="tx_nome"  [(ngModel)]="dados.tx_nome" placeholder="Nome">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput name="tx_site"  [(ngModel)]="dados.tx_site" placeholder="Site">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput name="tx_ano"  [(ngModel)]="dados.tx_ano" placeholder="Ano">
+        </mat-form-field>
+        
+        <mat-form-field>
+            <input matInput name="tx_criador"  [(ngModel)]="dados.tx_criador" placeholder="Criador">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput name="tx_versao"  [(ngModel)]="dados.tx_versao" placeholder="Versão">
+        </mat-form-field>
+
+        <mat-form-field>
+            
+            <mat-select name="id_liguagem"  [(ngModel)]="dados.id_liguagem" placeholder="Linguagem">
+              <mat-option *ngFor="let ling of linguagens" [value]="ling.id_liguagem">
+                {{ling.tx_liguagem}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+        
+        <mat-form-field>
+            <mat-select name="id_tipos"  [(ngModel)]="dados.id_tipos" placeholder="Tipo">
+              <mat-option *ngFor="let tipo of tipos" [value]="tipo.id_tipos">
+                {{tipo.tx_tipos}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="app-container">
+            <textarea matInput name="tx_opniao"  [(ngModel)]="dados.tx_opniao" placeholder="Opnião"></textarea>
+        </mat-form-field>
+
+        <mat-form-field class="app-container">
+            <textarea matInput name="tx_pros"  [(ngModel)]="dados.tx_pros" placeholder="Prós"></textarea>
+        </mat-form-field>
+
+        <mat-form-field class="app-container">
+            <textarea matInput name="tx_contra"  [(ngModel)]="dados.tx_contra" placeholder="Contras"></textarea>
+        </mat-form-field>
+        
+        <input type="hidden" name="id_frameworks" [(ngModel)]="dados.id_frameworks" >
+
+        <button mat-raised-button type="submit" color="warn">Salvar</button>
+      </form>
+    </div>

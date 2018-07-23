@@ -1,0 +1,30 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Login</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="login-container padding">
+  <form class="login-container" #form="ngForm" (ngSubmit)="doLogin(form)" >
+
+    <img class="logo margin-bottom" src="assets/logo.png">
+
+    <h3 class="margin-bottom">Entre</h3>
+
+    <mat-form-field>
+      <mat-icon class="margin-right" matPrefix>person</mat-icon>
+      <input matInput name="tx_login" ngModel placeholder="Usuário">
+    </mat-form-field>
+
+    <mat-form-field>    
+      <mat-icon class="margin-right" matPrefix >lock</mat-icon>
+      <input matInput name="tx_password" ngModel laceholder="Senha" [type]="hide ? 'password' : 'text'">
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+    </mat-form-field>
+
+    <button mat-raised-button type="submit" color="warn">Entrar</button>
+    <p class="app-mensage" *ngIf="errInput ? true : false">
+      {{errInput}}
+    </p>
+  </form>
+</div>

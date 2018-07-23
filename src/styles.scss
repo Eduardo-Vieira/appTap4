@@ -1,1 +1,92 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+}
+html{
+    height: 100%;
+}
+// padrão web
+$padding-margin:16px;
+
+$margin-fab:16px;
+$width-nav:300px;
+
+.padding {padding: $padding-margin;}
+.padding-top{padding-top: $padding-margin;}
+.padding-left{padding-left: $padding-margin;}
+.padding-right{padding-right: $padding-margin;}
+.padding-bottom	{padding-bottom: $padding-margin;}
+.padding-vertical{padding: $padding-margin 0;}
+.padding-horizontal{padding: 0 $padding-margin;}
+.no-padding{padding: 0;}
+
+.margin{margin: $padding-margin;}	
+.margin-top{margin-top: $padding-margin;}
+.margin-left{margin-left: $padding-margin;}
+.margin-right{margin-right: $padding-margin;}
+.margin-bottom{margin-bottom: $padding-margin;}
+.margin-vertical{margin: $padding-margin 0;}
+.margin-horizontal{margin: 0 $padding-margin;}
+.no-margin{margin: 0;}
+
+.app-mensage{
+    margin: $padding-margin;
+    color: #fff;
+    background-color: #dc3545;
+    padding: $padding-margin;
+    border-radius: 5px;
+}
+.app-container {
+    display: flex;
+    flex-direction: column;   
+}  
+.app-container > * {
+    width: 100%;
+}
+table {
+    width: 100%;
+}
+
+.mat-button{
+    min-width:0px !important;
+}
+
+.app-fab-bottom-right {
+    position: absolute;
+    bottom: $margin-fab;
+    right: $margin-fab;
+}
+
+.app-fab-bottom-left {
+    position: absolute;
+    bottom: $margin-fab;
+    left: $margin-fab;
+}
+.app-fab-bottom-right {
+    position: absolute;
+    bottom: $margin-fab;
+    right: $margin-fab;
+}
+.app-side-nav{
+    margin: 0px;
+    padding: 0px;
+    height:auto;
+}
+.app-side-nav > .app-side-menu {
+    left:0;
+    position:absolute; 
+    height:100%; 
+    width:300px; 
+    border-right: solid 1px #ccc;
+
+    
+}
+.app-side-nav > .app-side-content{
+    left:300px;
+    position:absolute; 
+    width: calc(100% - 300px);
+}

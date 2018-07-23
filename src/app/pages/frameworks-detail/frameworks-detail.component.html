@@ -1,0 +1,57 @@
+
+<div class="app-container padding">
+  
+    <h1 class="padding" >Frameworks - Detalhes </h1>
+  
+  <h3 class="padding">#Id:{{dados?.id_frameworks}}</h3>
+  
+  <mat-divider></mat-divider>
+  <div class="padding">
+    <a mat-raised-button color="primary" routerLink="/frameworks-edit/{{dados?.id_frameworks}}">Editar</a>
+  </div>
+
+  <div class="mat-elevation-z8">
+      <table class="padding">
+        <tr>
+          <td><label>Linguagem</label></td>
+          <td>{{dados?.tx_liguagem}}</td>
+        </tr>
+        <tr>
+            <td>Nome</td>
+            <td>{{dados?.tx_nome}}</td>
+        </tr>
+        <tr>
+            <td>Site</td>
+            <td>{{dados?.tx_site}}</td>
+        </tr>
+        <tr>
+            <td>Ano</td>
+            <td>{{dados?.tx_Ano}}</td>
+        </tr>
+        <tr>
+            <td>Criador</td>
+            <td>{{dados?.tx_criador}}</td>
+        </tr>
+        <tr>
+            <td>Versão</td>
+            <td>{{dados?.tx_versao}}</td>
+        </tr>
+        <tr>
+            <td>Tipos</td>
+            <td>{{dados?.tx_tipos}}</td>
+        </tr>
+        <tr>
+            <td>Opnião</td>
+            <td>{{dados?.tx_opniao}}</td>
+        </tr>
+        <tr>
+            <td>Prós</td>
+            <td>{{dados?.tx_pros}}</td>
+        </tr>
+        <tr>
+            <td>Contras</td>
+            <td>{{dados?.tx_contra}}</td>
+        </tr>
+      </table>
+  </div>
+</div>

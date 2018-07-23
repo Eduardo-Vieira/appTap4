@@ -1,0 +1,12 @@
+<form class="app-container" #form="ngForm" (ngSubmit)="doSave(form)" >
+  <p class="margin-bottom">
+    Para cadastra uma nova Linguagem é só escreve abaixo e em seguida click em salvar.
+  </p>
+
+  <mat-form-field>
+      <input matInput name="tx_liguagem" ngModel placeholder="Linguagem">
+  </mat-form-field>
+  <div>
+    <button mat-raised-button type="submit" color="warn">Salvar</button>
+  </div>
+</form>

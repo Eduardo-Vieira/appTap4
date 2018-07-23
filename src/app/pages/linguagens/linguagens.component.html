@@ -1,0 +1,19 @@
+<div class="app-container">
+    
+    <h1 class="padding" >Linguagens - Detalhes </h1>
+
+    <mat-list>
+        <mat-list-item *ngFor="let d of dados" routerLink="/linguagens-edit/{{d.id_liguagem}}">
+          <mat-divider></mat-divider>    
+          <p mat-line>{{d.tx_liguagem}}</p>
+          <mat-icon matSuffix> navigate_next </mat-icon>
+        </mat-list-item>
+        
+    </mat-list>
+</div>
+
+<div class="app-fab-bottom-right">
+    <button mat-fab color="warn" routerLink="/linguagens-add/">
+      <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+    </button>
+</div>
