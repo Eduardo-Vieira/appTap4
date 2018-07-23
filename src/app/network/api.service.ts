@@ -16,7 +16,7 @@ const httpOptions = {
 })
 export class ApiService {
 
-  private BASE_URL = "http://localhost:8080/api";
+  public BASE_URL = "http://localhost:8080/api";
   token: string;
   constructor(private http: HttpClient, private storage: StorageService) { 
     this.token = this.storage.get('token-app');

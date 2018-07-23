@@ -26,6 +26,8 @@ export class FrameworksDetailComponent implements OnInit {
   openDados(){
     this.api.get(`/frameworks/list/${this.pr.params['value'].id}`,{}).subscribe(data => {
       this.dados = data.data[0];
+      //Tratamento para visualizar a imagem do servidor
+      this.dados.tx_urlimg = this.api.BASE_URL.replace('/api','').concat(this.dados.tx_urlimg);
     },(err: HttpErrorResponse) => {
       if (err.error instanceof Error) {
         console.error('Erro do lado do cliente ocorrido.',err);
