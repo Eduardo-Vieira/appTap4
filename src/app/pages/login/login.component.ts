@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
           this.storage.set('token-app',data.data.token);
           this.route.navigate(['']);
           this.app.setDataSelection({auth:true})
+          this.api.getToken();
         }else {
           this.errInput = data.mensage;
         }

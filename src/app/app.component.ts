@@ -24,6 +24,12 @@ export class AppComponent implements OnInit {
     ];
   }
 
+  doExit(){
+    this.storage.set('token-app',null)
+    this.app.setDataSelection({auth:false});
+    this.route.navigate(['login']);
+  }
+
   ngOnInit(){
     this.app.data.subscribe(data => {
       // use os dados aqui

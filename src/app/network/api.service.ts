@@ -22,6 +22,10 @@ export class ApiService {
     this.token = this.storage.get('token-app');
   }
   
+  public getToken(){
+    this.token = this.storage.get('token-app');
+  }
+
   public get(url: string,data: any){
     httpOptions.headers = httpOptions.headers.set('Authorization', this.token);
     return this.http.get<DataResponse>(this.BASE_URL.concat(url),httpOptions);
