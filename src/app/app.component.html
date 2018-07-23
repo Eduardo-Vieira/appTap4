@@ -1,11 +1,11 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" *ngIf="auth">
         <mat-toolbar-row>
           <span>{{title}}</span>
         </mat-toolbar-row>
 </mat-toolbar>
 
 <div class="app-side-nav">
-    <div class="app-side-menu">
+    <div class="app-side-menu" *ngIf="auth">
         <mat-list>
             <mat-list-item *ngFor="let m of menu" (click)="navPage(m)" >                
                 <p mat-line>{{m.title}}</p>
@@ -14,7 +14,7 @@
             </mat-list-item>
         </mat-list>
     </div>    
-    <div class="app-side-content">
+    <div [ngClass]="{'app-side-content' : auth}">
         <router-outlet></router-outlet>
     </div>
 </div>

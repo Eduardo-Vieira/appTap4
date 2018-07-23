@@ -57,7 +57,12 @@
         <mat-form-field class="app-container">
             <textarea matInput name="tx_contra" ngModel placeholder="Contras"></textarea>
         </mat-form-field>
-    
+
+        <div class="padding">
+            <label>Imagen: </label>
+            <input type="file" name="tx_urlimg" (change)="openFileImg($event)" ngModel placeholder="Imagen"/>
+        </div>
+
         <button mat-raised-button type="submit" color="warn">Salvar</button>
       </form>
     </div>

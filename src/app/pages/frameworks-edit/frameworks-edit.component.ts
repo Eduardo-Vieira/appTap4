@@ -29,7 +29,7 @@ export class FrameworksEditComponent implements OnInit {
                               tx_opniao: '', 
                               tx_pros: '', 
                               tx_contra: '', 
-                              tx_urlim: ''
+                              tx_urlimg: ''
                             };
 
   public linguagens: Linguagens;

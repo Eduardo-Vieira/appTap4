@@ -31,7 +31,8 @@ const routes: Routes = [
   entryComponents:[DialogLinguagensAddComponent]
 })
 export class AppRoutingModule { }
-export const PagesComponent = [HomeComponent, 
+export const PagesComponent = [
+                               HomeComponent, 
                                LoginComponent, 
                                LinguagensComponent,
                                LinguagensAddComponent,

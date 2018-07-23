@@ -3,6 +3,7 @@ import { ApiService } from '../../network/api.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { StorageService } from '../../modelo/storage.service';
 import { Router } from '@angular/router';
+import { AppService } from '../../app.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   
   public errInput = '';
 
-  constructor(private api: ApiService, private route: Router, private storage: StorageService) { }
+  constructor(private app:AppService, private api: ApiService, private route: Router, private storage: StorageService) { }
 
   ngOnInit() {
 
@@ -30,7 +31,8 @@ export class LoginComponent implements OnInit {
       this.api.auth(form.value).subscribe(data => {
         if(data.code == 200){
           this.storage.set('token-app',data.data.token);
-          this.route.navigate(['home']);
+          this.route.navigate(['']);
+          this.app.setDataSelection({auth:true})
         }else {
           this.errInput = data.mensage;
         }

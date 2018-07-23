@@ -12,6 +12,6 @@ export interface Frameworks {
     tx_opniao: string, 
     tx_pros: string, 
     tx_contra: string, 
-    tx_urlim: string
+    tx_urlimg: string
   }
 

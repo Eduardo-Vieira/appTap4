@@ -19,7 +19,11 @@ export class FrameworksAddComponent implements OnInit {
   
   public tx_liguagem:string;
 
-  constructor(private router:Router, private api: ApiService, public dialog: MatDialog) { }
+  private img:any = {};
+
+  constructor(private router:Router, private api: ApiService, public dialog: MatDialog) {
+  
+  }
 
   ngOnInit() {
     this.openLinguagens();
@@ -63,8 +67,28 @@ export class FrameworksAddComponent implements OnInit {
       this.openLinguagens();
     });
   }
+  
+  openFileImg(event) {
+      let reader = new FileReader();
+      if(event.target.files && event.target.files.length > 0) {
+        let file = event.target.files[0];
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+          this.img = {  nameFile: file.name.split('.')[0],
+                        typeFile: file.type,
+                        sizeFile: file.size,
+                        value: reader.result
+                      };
+          console.log(this.img);
+        };
+      }
+    
+  }
 
+  
   doSave(form){
+    // Add o objeto imagem no payload
+    form['value']['tx_urlimg'] = this.img;
     this.api.post('/frameworks/save/add',form['value']).subscribe(data => {
       if(data.data == 'OK'){
         this.router.navigate(['frameworks']);
