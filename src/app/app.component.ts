@@ -11,6 +11,7 @@ import { AppService } from './app.service';
 export class AppComponent implements OnInit {
   
   public title = 'Home';
+  public ico = 'home';
   public menu;
   
   public auth: Boolean;
@@ -18,9 +19,9 @@ export class AppComponent implements OnInit {
   constructor(private app:AppService, private route: Router, private storage: StorageService){
 
     this.menu = [
-      {title: 'Home', link:'/home'},
-      {title: 'Linguagens', link:'/linguagens'},
-      {title: 'Frameworks', link:'/frameworks'},
+      {title: 'Home', ico: 'home', link:'/home'},
+      {title: 'Linguagens', ico:'list', link:'/linguagens'},
+      {title: 'Frameworks', ico:'reorder', link:'/frameworks'},
     ];
   }
 
@@ -46,6 +47,7 @@ export class AppComponent implements OnInit {
 
   navPage(page){
     this.title = page.title;
+    this.ico = page.ico;
     this.route.navigate([page.link]);
   }
 }

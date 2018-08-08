@@ -1,6 +1,7 @@
 <mat-toolbar color="primary" *ngIf="auth">
         <mat-toolbar-row>
-          <span>{{title}}</span>
+          <mat-icon style="padding-right: 16px;"> {{ico}} </mat-icon>
+          <span style="padding-top: 3px;">{{title}}</span>
           <span class="example-spacer"></span>
           <button mat-button (click)="doExit()"><mat-icon class="example-icon">exit_to_app</mat-icon>Sair</button>
         </mat-toolbar-row>
@@ -9,7 +10,8 @@
 <div class="app-side-nav">
     <div class="app-side-menu" *ngIf="auth">
         <mat-list>
-            <mat-list-item *ngFor="let m of menu" (click)="navPage(m)" >                
+            <mat-list-item *ngFor="let m of menu" (click)="navPage(m)" >
+                <mat-icon mat-list-icon>{{m.ico}}</mat-icon>                
                 <p mat-line>{{m.title}}</p>
                 <mat-icon matSuffix> navigate_next </mat-icon>
                 <mat-divider></mat-divider>                                
