@@ -12,16 +12,17 @@ export class AppComponent implements OnInit {
   
   public title = 'Home';
   public ico = 'home';
-  public menu;
-  
+  public menu;  
+  public showmenu;
+
   public auth: Boolean;
 
   constructor(private app:AppService, private route: Router, private storage: StorageService){
 
     this.menu = [
-      {title: 'Home', ico: 'home', link:'/home'},
-      {title: 'Linguagens', ico:'list', link:'/linguagens'},
-      {title: 'Frameworks', ico:'reorder', link:'/frameworks'},
+      {title: 'Home', ico: 'home', link:'/home', roule: 'user'},
+      {title: 'Linguagens', ico:'list', link:'/linguagens', roule:'admin'},
+      {title: 'Frameworks', ico:'reorder', link:'/frameworks', roule:'admin'},
     ];
   }
 
@@ -41,6 +42,7 @@ export class AppComponent implements OnInit {
      this.route.navigate(['login']);
     }else{
       this.app.setDataSelection({auth:true})
+      this.getMenu('user');
       this.route.navigate(['home']);
     }
   }
@@ -50,4 +52,22 @@ export class AppComponent implements OnInit {
     this.ico = page.ico;
     this.route.navigate([page.link]);
   }
+
+  getMenu(value: string) {
+      
+    // set val to the value of the searchbar
+    const val = value;
+    
+    // if the value is an empty string don't filter the items
+    if (val && val.trim() != '') {
+      if(val !='admin'){
+        this.showmenu = this.menu.filter((item) => {
+        return (item.roule.toLowerCase().indexOf(val.toLowerCase()) > -1);
+        })
+      }else{
+        this.showmenu = this.menu;
+      }
+    }
+  }
+  
 }

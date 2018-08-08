@@ -10,7 +10,7 @@
 <div class="app-side-nav">
     <div class="app-side-menu" *ngIf="auth">
         <mat-list>
-            <mat-list-item *ngFor="let m of menu" (click)="navPage(m)" >
+            <mat-list-item *ngFor="let m of showmenu" (click)="navPage(m)" >
                 <mat-icon mat-list-icon>{{m.ico}}</mat-icon>                
                 <p mat-line>{{m.title}}</p>
                 <mat-icon matSuffix> navigate_next </mat-icon>
