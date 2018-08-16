@@ -1,18 +1,52 @@
-<div class="app-container">
+<div class="app-container padding">
     
     <h1 class="padding" >Linguagens - Detalhes </h1>
 
-    <mat-list>
+    <!-- <mat-list>
         <mat-list-item *ngFor="let d of dados" routerLink="/linguagens-edit/{{d.id_liguagem}}">
           <mat-divider></mat-divider>    
           <p mat-line>{{d.tx_liguagem}}</p>
           <mat-icon matSuffix> navigate_next </mat-icon>
         </mat-list-item>
         
-    </mat-list>
+    </mat-list> -->
+
+    <div class="mat-elevation-z8">
+
+        <table mat-table [dataSource]="dataSource" >
+
+            <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+        
+            <!-- Column -->
+            <ng-container matColumnDef="id_liguagem">
+            <th mat-header-cell *matHeaderCellDef> Id </th>
+            <td mat-cell *matCellDef="let element"> {{element.id_liguagem}} </td>
+            </ng-container>
+
+            <!-- Column -->
+            <ng-container matColumnDef="tx_liguagem">
+                <th mat-header-cell *matHeaderCellDef> Linguagem </th>
+                <td mat-cell *matCellDef="let element"> {{element.tx_liguagem}} </td>
+            </ng-container>
+
+            <!-- Column -->
+            <ng-container matColumnDef="menu">
+                    <th mat-header-cell *matHeaderCellDef></th>
+                    <td mat-cell *matCellDef="let element">
+                        <button mat-button (click)="doDetail(element.id_liguagem)"><mat-icon>visibility</mat-icon></button>
+                        <button mat-button (click)="doEdit(element.id_liguagem)"><mat-icon>edit</mat-icon></button>
+                    </td>
+            </ng-container>       
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
 </div>
 
-<div class="app-fab-bottom-right">
+<div class="app-fab-top-right">
     <button mat-fab color="warn" routerLink="/linguagens-add/">
       <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
     </button>

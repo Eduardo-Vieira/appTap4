@@ -42,7 +42,7 @@ export class AppComponent implements OnInit {
      this.route.navigate(['login']);
     }else{
       this.app.setDataSelection({auth:true})
-      this.getMenu('user');
+      this.getMenu('admin');
       this.route.navigate(['home']);
     }
   }
